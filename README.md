@@ -1,20 +1,14 @@
-# Laravel Project - Sending Emails with Mailtrap.io
-
+Laravel Project - Sending Emails with Mailtrap.io
 This Laravel project provides an example of how to send emails using the Mailtrap.io email testing service. Mailtrap.io allows you to simulate the sending and receiving of emails in a testing environment, making it ideal for development and testing purposes.
 
-## Prerequisites
-
+Prerequisites
 Before running this Laravel project, ensure that you have the following:
 
-1. PHP installed on your system.
-2. Composer installed on your system.
-3. Laravel framework installed globally.
-
-## Getting Started
-
-1. Clone the repository to your local machine:
-
-```bash
+PHP installed on your system.
+Composer installed on your system.
+Laravel framework installed globally.
+Getting Started
+Clone the repository to your local machine:
 git clone https://github.com/artam01/mail.git
 Install project dependencies using Composer:
 
