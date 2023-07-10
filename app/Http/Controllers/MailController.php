@@ -11,7 +11,7 @@ class MailController extends Controller
     {
         $name = 'John Doe';
 
-        Mail::to('fake@gmail.com')->send(new Signup($name));
+        Mail::to('fake@gmail.com')->send(new Signup($name)); //->attach('C:\Users\artam\SendMail\public\attach\users (8).pdf');
 
         return view('welcome');
     }

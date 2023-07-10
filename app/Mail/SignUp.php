@@ -4,7 +4,6 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
@@ -14,12 +13,15 @@ class SignUp extends Mailable
 
     public $name;
 
+    public $attachments = [];
+
     /**
      * Create a new message instance.
      */
     public function __construct($name)
     {
         $this->name = $name;
+
     }
 
     /**
@@ -32,28 +34,19 @@ class SignUp extends Mailable
         );
     }
 
+    /**
+     * Build the message.
+     */
     public function build()
     {
-        return $this->view('SignupView');
+        return $this->from('sender@example.com')
+            ->markdown('SignupView'); //->attachFiles($this->attachments);
     }
 
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
+    public function attach($path, array $options = [])
     {
-        return new Content(
-            view: 'SignupView',
-        );
-    }
+        $this->attachments[] = new Attachment($path, $options);
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        return $this;
     }
 }
